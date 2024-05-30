@@ -16,11 +16,6 @@ app.get('/', function(req:any, res:any) {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
 app.get('/route', function(req:any, res:any) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3002');
-    res.setHeader(
-      'Access-Control-Allow-Methods',
-      'OPTIONS, GET, POST, PUT, DELETE'
-    );
     res.cookie('refreshToken', 'testan')
     res.send('Test')
 });
