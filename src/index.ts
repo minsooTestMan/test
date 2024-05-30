@@ -7,10 +7,11 @@ const app = express();
 const io = require('socket.io');
 
 app.use(express.json())
-app.use(cors({
-    origin:'http://localhost:3002',
-    Credentials:true
-}))
+app.use(cors())
+// app.use(cors({
+//     origin:'http://localhost:3002',
+//     Credentials:true
+// }))
 app.get('/', function(req:any, res:any) {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
@@ -20,10 +21,7 @@ app.get('/route', function(req:any, res:any) {
       'Access-Control-Allow-Methods',
       'OPTIONS, GET, POST, PUT, DELETE'
     );
-    res.cookie('refreshToken', 'testan', {
-        httpOnly: true,
-        sameSite: 'none'
-    })
+    res.cookie('refreshToken', 'testan')
     res.send('Test')
 });
 const httpServer = http.createServer(app);
