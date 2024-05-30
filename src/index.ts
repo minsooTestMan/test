@@ -30,8 +30,8 @@ app.post('/cookie', function(req:any, res:any) {
         httpOnly:true,
         expires: new Date(Date.now() + 3600000)
     })
-    console.log(req.cookies)
-    res.send(JSON.stringify(req))
+    console.log(req.cookies[0])
+    res.send('test')
 });
 const httpServer = http.createServer(app);
 
