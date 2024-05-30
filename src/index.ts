@@ -31,7 +31,13 @@ app.post('/cookie', function(req:any, res:any) {
         expires: new Date(Date.now() + 3600000)
     })
     console.log(req.cookies[0])
-    res.send('test')
+    res
+      .writeHead(200, {
+          "Set-Cookie": "token=encryptedstring; HttpOnly",
+          "Access-Control-Allow-Credentials": "true"
+      })
+      .send();
+    // res.send('test')
 });
 const httpServer = http.createServer(app);
 
