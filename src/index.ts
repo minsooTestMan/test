@@ -23,7 +23,10 @@ app.get('/route', function(req:any, res:any) {
     res.send('Test')
 });
 app.post('/cookie', function(req:any, res:any) {
-    res.cookie('refreshToken', 'testan')
+    res.cookie('refreshToken', 'testan',{
+        httpOnly:true,
+        maxAge:30
+    })
     res.send('Cookie')
 });
 const httpServer = http.createServer(app);
