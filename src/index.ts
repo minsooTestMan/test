@@ -1,10 +1,20 @@
 import * as http from "http";
+import * as path from "path";
 
+const cors = require("cors");
 const express = require("express");
 const app = express();
-// const http = require("http")
 const io = require('socket.io');
 
+app.use(express.json())
+app.use(cors())
+app.get('/', function(req:any, res:any) {
+    res.sendFile(path.join(__dirname, 'index.html'))
+});
+app.get('/route', function(req:any, res:any) {
+    console.log(req)
+    res.send('Test')
+});
 const httpServer = http.createServer(app);
 
 const socketServer = io(httpServer, {
