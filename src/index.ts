@@ -30,7 +30,7 @@ app.post('/cookie', function(req:any, res:any) {
         httpOnly:true,
         expires: new Date(Date.now() + 3600000)
     })
-    console.log(req.cookies.token)
+    console.log(req.cookies.refreshToken)
     res.send('Cookie')
 });
 const httpServer = http.createServer(app);
