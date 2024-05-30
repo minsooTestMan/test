@@ -21,7 +21,7 @@ app.get('/route', function(req:any, res:any) {
 });
 app.post('/cookie', function(req:any, res:any) {
     res.writeHead(200,{
-        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Credentials": true,
         origin: 'http://localhost:3002'
     })
     res.cookie('refreshToken', 'testan',{
