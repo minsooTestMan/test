@@ -9,7 +9,7 @@ const io = require('socket.io');
 app.use(express.json())
 app.use(cors({
     origin: 'http://localhost:3002',
-    // credentials:true
+    credentials:true
 }))
 
 app.get('/', function(req:any, res:any) {
@@ -20,10 +20,10 @@ app.get('/route', function(req:any, res:any) {
     res.send('Test')
 });
 app.post('/cookie', function(req:any, res:any) {
-    res.writeHead(200,{
-        "Access-Control-Allow-Credentials": true,
-        origin: 'http://localhost:3002'
-    })
+    // res.writeHead(200,{
+    //     "Access-Control-Allow-Credentials": true,
+    //     origin: 'http://localhost:3002'
+    // })
     res.cookie('refreshToken', 'testan',{
         httpOnly:true,
         expires: new Date(Date.now() + 3600000)
