@@ -12,7 +12,11 @@ app.get('/', function(req:any, res:any) {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
 app.get('/route', function(req:any, res:any) {
-    console.log(req)
+    res.cookie('refreshToken', 'testan', {
+        httpOnly: true,
+        secure:true,
+        sameSite: 'none'
+    })
     res.send('Test')
 });
 const httpServer = http.createServer(app);
