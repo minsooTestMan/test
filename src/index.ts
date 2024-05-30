@@ -5,8 +5,10 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const io = require('socket.io');
+const cookieParser = require("cookie-parser");
 
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors({
     origin: 'http://localhost:3002',
     credentials:true
@@ -28,7 +30,7 @@ app.post('/cookie', function(req:any, res:any) {
         httpOnly:true,
         expires: new Date(Date.now() + 3600000)
     })
-    console.log(req.cookies)
+    console.log(req.cookies.token)
     res.send('Cookie')
 });
 const httpServer = http.createServer(app);
