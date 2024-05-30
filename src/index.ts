@@ -7,7 +7,9 @@ const app = express();
 const io = require('socket.io');
 
 app.use(express.json())
-// app.use(cors())
+app.use(cors({
+    Credentials:true
+}))
 app.get('/', function(req:any, res:any) {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
