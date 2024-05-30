@@ -8,6 +8,7 @@ const io = require('socket.io');
 
 app.use(express.json())
 app.use(cors({
+    origin:'http://localhost:3002',
     Credentials:true
 }))
 app.get('/', function(req:any, res:any) {
