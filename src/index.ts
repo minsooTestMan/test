@@ -22,6 +22,10 @@ app.get('/route', function(req:any, res:any) {
     res.cookie('refreshToken', 'testan')
     res.send('Test')
 });
+app.post('/cookie', function(req:any, res:any) {
+    res.cookie('refreshToken', 'testan')
+    res.send('Cookie')
+});
 const httpServer = http.createServer(app);
 
 const socketServer = io(httpServer, {
