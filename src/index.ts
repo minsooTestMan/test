@@ -29,9 +29,9 @@ app.post('/cookie', function(req:any, res:any) {
     res.cookie('refreshToken', 'testan',{
         httpOnly:true,
         expires: new Date(Date.now() + 3600000),
-        sameSite: 'none'
+        sameSite: 'none',
+        path:'/private'
     })
-    console.log(res.cookies)
     // res
     //   .writeHead(200, {
     //       "Set-Cookie": "token=encryptedstring; HttpOnly",
