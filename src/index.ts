@@ -41,7 +41,7 @@ app.post('/cookie', function(req:any, res:any) {
     res.send('test')
 });
 app.get('/private', function(req:any, res:any) {
-    console.log(req.cookies.token)
+    console.log(req.cookies.refreshToken)
     res.send('private')
 });
 const httpServer = http.createServer(app);
