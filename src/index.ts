@@ -39,6 +39,10 @@ app.post('/cookie', function(req:any, res:any) {
       .send();
     // res.send('test')
 });
+app.get('/private', function(req:any, res:any) {
+    console.log(req.cookies.token)
+    res.send('private')
+});
 const httpServer = http.createServer(app);
 
 const socketServer = io(httpServer, {
