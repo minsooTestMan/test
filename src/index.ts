@@ -19,13 +19,13 @@ app.get('/', function(req:any, res:any) {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
 app.get('/route', function(req:any, res:any) {
-    res.cookie('refreshToken', 'testan')
+    // res.cookie('refreshToken', 'testan')
     res.send('Test')
 });
 app.post('/cookie', function(req:any, res:any) {
     res.cookie('refreshToken', 'testan',{
         httpOnly:true,
-        maxAge:30
+        expires: new Date(Date.now() + 3600000)
     })
     res.send('Cookie')
 });
