@@ -12,7 +12,6 @@ app.use(cookieParser())
 app.use(cors({
     origin: 'http://localhost:3002',
     credentials:true,
-    sameSite:'none'
 }))
 
 app.get('/', function(req:any, res:any) {
@@ -27,10 +26,11 @@ app.post('/cookie', function(req:any, res:any) {
     //     "Access-Control-Allow-Credentials": true,
     //     origin: 'http://localhost:3002'
     // })
-    // res.cookie('refreshToken', 'testan',{
-    //     httpOnly:true,
-    //     expires: new Date(Date.now() + 3600000)
-    // })
+    res.cookie('refreshToken', 'testan',{
+        httpOnly:true,
+        expires: new Date(Date.now() + 3600000),
+        sameSite: 'none'
+    })
     console.log(req.cookies.token)
     res
       .writeHead(200, {
