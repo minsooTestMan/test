@@ -32,13 +32,13 @@ app.post('/cookie', function(req:any, res:any) {
         sameSite: 'none'
     })
     console.log(req.cookies.token)
-    res
-      .writeHead(200, {
-          "Set-Cookie": "token=encryptedstring; HttpOnly",
-          "Access-Control-Allow-Credentials": "true"
-      })
-      .send();
-    // res.send('test')
+    // res
+    //   .writeHead(200, {
+    //       "Set-Cookie": "token=encryptedstring; HttpOnly",
+    //       "Access-Control-Allow-Credentials": "true"
+    //   })
+    //   .send();
+    res.send('test')
 });
 app.get('/private', function(req:any, res:any) {
     console.log(req.cookies.token)
