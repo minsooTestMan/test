@@ -26,10 +26,10 @@ app.post('/cookie', function(req:any, res:any) {
     //     "Access-Control-Allow-Credentials": true,
     //     origin: 'http://localhost:3002'
     // })
-    res.cookie('refreshToken', 'testan',{
-        httpOnly:true,
-        expires: new Date(Date.now() + 3600000)
-    })
+    // res.cookie('refreshToken', 'testan',{
+    //     httpOnly:true,
+    //     expires: new Date(Date.now() + 3600000)
+    // })
     console.log(req.cookies.token)
     res
       .writeHead(200, {
