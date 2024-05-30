@@ -14,7 +14,6 @@ app.get('/', function(req:any, res:any) {
 app.get('/route', function(req:any, res:any) {
     res.cookie('refreshToken', 'testan', {
         httpOnly: true,
-        secure:true,
         sameSite: 'none'
     })
     res.send('Test')
