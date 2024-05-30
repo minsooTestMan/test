@@ -31,7 +31,7 @@ app.post('/cookie', function(req:any, res:any) {
         expires: new Date(Date.now() + 3600000),
         sameSite: 'none'
     })
-    console.log(res.cookies.token)
+    console.log(res.cookies)
     // res
     //   .writeHead(200, {
     //       "Set-Cookie": "token=encryptedstring; HttpOnly",
