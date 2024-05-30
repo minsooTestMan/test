@@ -12,7 +12,7 @@ app.get('/', function(req:any, res:any) {
     res.sendFile(path.join(__dirname, 'index.html'))
 });
 app.get('/route', function(req:any, res:any) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:80');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3002');
     res.cookie('refreshToken', 'testan', {
         httpOnly: true,
         sameSite: 'none'
