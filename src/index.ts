@@ -73,4 +73,4 @@ socketServer.on("disconnect", (socket:any) => {
     })
 }); // 연결확인
 
-httpServer.listen(9001)
+httpServer.listen(9000)
