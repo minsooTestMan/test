@@ -30,7 +30,7 @@ app.post('/cookie', function(req:any, res:any) {
         httpOnly:true,
         expires: new Date(Date.now() + 3600000),
         // sameSite: 'none',
-        path:'/private'
+        path:'/'
     })
     // res
     //   .writeHead(200, {
@@ -41,7 +41,10 @@ app.post('/cookie', function(req:any, res:any) {
     res.send('test')
 });
 app.get('/private', function(req:any, res:any) {
-    console.log(req.cookies.refresh_token)
+    console.log(req.cookies.refresh_token, {
+        httpOnly:true,
+        path:'/'
+    })
     res.send('private')
 });
 
