@@ -41,15 +41,15 @@ app.post('/cookie', function(req:any, res:any) {
     res.send('test')
 });
 app.get('/private', function(req:any, res:any) {
-    console.log(req.cookies.refresh_token, {
-        httpOnly:true,
-        path:'/'
-    })
+    console.log(req.cookies.refresh_token)
     res.send('private')
 });
 
 app.get('/delete', function(req:any, res:any) {
-    res.clearCookie('refresh_token')
+    res.clearCookie('refresh_token', {
+        httpOnly:true,
+        path:'/'
+    })
     res.send('delete')
 });
 const httpServer = http.createServer(app);
