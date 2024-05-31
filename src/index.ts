@@ -26,7 +26,7 @@ app.post('/cookie', function(req:any, res:any) {
     //     "Access-Control-Allow-Credentials": true,
     //     origin: 'http://localhost:3002'
     // })
-    res.cookie('refreshToken', 'testan',{
+    res.cookie('refresh_token', 'testan',{
         httpOnly:true,
         expires: new Date(Date.now() + 3600000),
         // sameSite: 'none',
@@ -41,8 +41,13 @@ app.post('/cookie', function(req:any, res:any) {
     res.send('test')
 });
 app.get('/private', function(req:any, res:any) {
-    console.log(req.cookies.refreshToken)
+    console.log(req.cookies.refresh_token)
     res.send('private')
+});
+
+app.get('/delete', function(req:any, res:any) {
+    res.clearCookie('refresh_token')
+    res.send('delete')
 });
 const httpServer = http.createServer(app);
 
