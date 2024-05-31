@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: 'http://localhost:3002',
+    origin: 'http://localhost:3001',
     credentials:true,
 }))
 
@@ -29,7 +29,7 @@ app.post('/cookie', function(req:any, res:any) {
     res.cookie('refreshToken', 'testan',{
         httpOnly:true,
         expires: new Date(Date.now() + 3600000),
-        sameSite: 'none',
+        // sameSite: 'none',
         path:'/private'
     })
     // res
@@ -73,4 +73,4 @@ socketServer.on("disconnect", (socket:any) => {
     })
 }); // 연결확인
 
-httpServer.listen(9000)
+httpServer.listen(9001)
